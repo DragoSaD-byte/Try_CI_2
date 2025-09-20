@@ -1,0 +1,10 @@
+on:
+  workflow_call:
+
+jobs:
+    build:
+        runs-on: self-hosted
+        steps:
+            - name: 'Run'
+              run: |
+                python sum_param.py 1 2 3
