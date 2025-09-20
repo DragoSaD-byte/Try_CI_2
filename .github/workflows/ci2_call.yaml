@@ -1,13 +1,25 @@
 on:
   workflow_call:
+    inputs:
+      log-file:
+        description: 'Path to log file'
+        required: false
+        default: 'log.bin'
+        type: string
 
 jobs:
     build:
         runs-on: self-hosted
         steps:
-            - name: 'Build'
+            - name: 'Download artifact'
+              uses: actions/download-artifact@v4
+              with:
+                name: log-file
+            - name: 'get_bin'
               run: |
-                    DragoSaD-byte/Try_CI_2/sum_param_test.py@main > sum_param.py
+                    echo "import sys
+                    if __name__ == '__main__':
+                        print(sum(map(int, sys.argv[1:])))" > sum_param.py
             - name: 'Run'
               run: |
-                python sum_param.py 1 2 3
+                {{ inputs.log-file }} > python sum_param.py
