@@ -5,6 +5,11 @@ jobs:
     build:
         runs-on: self-hosted
         steps:
+            - name: 'Build'
+              run: |
+                    echo "import sys
+                    if __name__ == '__main__':
+                        print(sum(map(int, sys.argv[1:])))" > sum_param.py
             - name: 'Run'
               run: |
                 python sum_param.py 1 2 3
