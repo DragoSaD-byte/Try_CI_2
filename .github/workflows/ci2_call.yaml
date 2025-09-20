@@ -27,4 +27,4 @@ jobs:
                         print(sum(map(int, sys.argv[1:])))" > sum_param.py
             - name: 'Run'
               run: |
-                {{ inputs.log-file }} > python sum_param.py
+                cat ${{ inputs.log-file }} > python sum_param.py
