@@ -1,6 +1,11 @@
 on:
   workflow_call:
     inputs:
+      artifact-name:
+        description: 'Name of the artifact to download'
+        required: false
+        default: 'log-file'
+        type: string
       log-file:
         description: 'Path to log file'
         required: false
@@ -14,7 +19,7 @@ jobs:
             - name: 'Download artifact'
               uses: actions/download-artifact@v4
               with:
-                name: log-file
+                name: artifact-name
             - name: 'get_bin'
               run: |
                     echo "import sys
