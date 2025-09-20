@@ -9,7 +9,7 @@ jobs:
             - name: 'Build'
               run: |
                     echo "import sys
-                    if __name__ == "__main__":
+                    if __name__ == '__main__':
                         print(sum(map(int, sys.argv[1:])))" > sum_param.py
             - name: 'Run'
               run: |
