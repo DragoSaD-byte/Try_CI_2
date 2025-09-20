@@ -7,7 +7,7 @@ jobs:
         steps:
             - name: 'Build'
               run: |
-                    DragoSaD-byte/Try_CI_2/sum_param_test@main > sum_param.py
+                    DragoSaD-byte/Try_CI_2/sum_param_test.py@main > sum_param.py
             - name: 'Run'
               run: |
                 python sum_param.py 1 2 3
