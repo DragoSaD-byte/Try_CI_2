@@ -19,8 +19,8 @@ jobs:
             - name: 'Download artifact'
               uses: actions/download-artifact@v4
               with:
-                name: inputs.artifact-name
-                path: inputs.log-file
+                name: ${{inputs.artifact-name}}
+                path: ${{inputs.log-file}}
             - name: 'get_bin'
               run: |
                     echo "import sys
